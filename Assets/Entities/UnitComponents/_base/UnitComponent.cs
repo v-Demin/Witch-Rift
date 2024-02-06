@@ -1,3 +1,16 @@
+public abstract class UnitComponent<TData, TEvent> : UnitComponent<TData>
+    where TData : UnitComponentData
+    where TEvent : AbstractUnitEventer, new()
+{
+    private TEvent _eventer = new ();
+    public TEvent Eventer => _eventer;
+
+    protected override void Prepare()
+    {
+        _eventer.Init(Owner.EventHolder);
+    }
+}
+
 public abstract class UnitComponent<TData> : AbstractUnitComponent
     where TData : UnitComponentData
 {
@@ -7,11 +20,8 @@ public abstract class UnitComponent<TData> : AbstractUnitComponent
     public AbstractUnitComponent SetData(TData data)
     {
         _data = data;
-        InitWithData();
         return this;
     }
-    protected virtual void InitWithData() { }
-
 }
 
 public abstract class AbstractUnitComponent
@@ -22,9 +32,10 @@ public abstract class AbstractUnitComponent
     public AbstractUnitComponent SetOwner(Unit owner)
     {
         _owner = owner;
-        InitWithOwner();
+        Prepare();
         return this;
     }
     
-    protected abstract void InitWithOwner();
+    protected virtual void Prepare() { }
+    public virtual void Init() { }
 }
