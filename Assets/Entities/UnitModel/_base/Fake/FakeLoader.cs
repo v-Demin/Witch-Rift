@@ -5,7 +5,8 @@ using UnityEngine;
 public class FakeLoader : MonoBehaviour
 {
     [SerializeField] private UnitView _playerView;
-    [SerializeField] private List<AbstractUnitComponentFabricator> _fabricators;
+    [SerializeField] private List<AbstractUnitComponentSoFabricator> _soFabricators;
+    [SerializeField] private List<AbstractUnitComponentMonoFabricator> _monoFabricators;
     
     private void Start()
     {
@@ -14,7 +15,10 @@ public class FakeLoader : MonoBehaviour
 
     private void LoadAsFake()
     {
-        var unit = new Unit(_fabricators.Select(fabricator => fabricator.Fabricate()).ToList());
+        var components = _soFabricators.Select(fabricator => fabricator.Fabricate()).ToList();
+        components.AddRange(_monoFabricators.Select(fabricator => fabricator.Fabricate()).ToList());
+        
+        var unit = new Unit(components);
         _playerView.Init(unit);
     }
 }

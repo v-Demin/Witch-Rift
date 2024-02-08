@@ -1,6 +1,6 @@
 using UnityEngine;
 
 [CreateAssetMenu]
-public class TestFabricator : UnitComponentFabricator<TestComponent, TestData>
+public class TestSoFabricator : UnitComponentSoFabricator<TestComponent, TestData>
 {
 }

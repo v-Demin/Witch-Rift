@@ -37,5 +37,12 @@ public abstract class AbstractUnitComponent
     }
     
     protected virtual void Prepare() { }
-    public virtual void Init() { }
+
+    public void Init()
+    {
+        Owner.EventHolder.Subscribe(this);
+        InitInner();
+    }
+
+    protected virtual void InitInner() { }
 }

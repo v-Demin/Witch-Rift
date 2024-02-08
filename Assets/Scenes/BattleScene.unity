@@ -363,18 +363,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Unit
       objectReference: {fileID: 0}
-    - target: {fileID: 8566114459430490060, guid: e0799278c77afbf4eb5b5f8262ea15f7, type: 3}
-      propertyPath: _fabricators.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8566114459430490060, guid: e0799278c77afbf4eb5b5f8262ea15f7, type: 3}
-      propertyPath: '_fabricators.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 34ab0de9736f3a84aadefc497db97e35, type: 2}
-    - target: {fileID: 8566114459430490060, guid: e0799278c77afbf4eb5b5f8262ea15f7, type: 3}
-      propertyPath: '_fabricators.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 358e774bfcc6a7f4cb6dd76447710534, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
