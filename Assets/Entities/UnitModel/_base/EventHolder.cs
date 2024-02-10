@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventHolder : MonoBehaviour
+public class EventHolder
 {
-    public Dictionary<Type, List<ISubscriber>> _events = new ();
+    private Dictionary<Type, List<ISubscriber>> _events = new ();
 
     public void Subscribe<T>(T subscriber)
     {
@@ -24,6 +24,8 @@ public class EventHolder : MonoBehaviour
     public void RaiseEvent<TSubscriber>(Action<TSubscriber> action)
         where TSubscriber : class, ISubscriber
     {
+        if(!_events.ContainsKey(typeof(TSubscriber))) return;
+        
         var subscribers = _events[typeof(TSubscriber)];
         foreach (ISubscriber subscriber in subscribers)
         {

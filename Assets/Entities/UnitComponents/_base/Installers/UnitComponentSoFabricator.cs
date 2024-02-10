@@ -1,18 +1,27 @@
 using UnityEngine;
 
-public abstract class UnitComponentSoFabricator<TComponent, TData> : AbstractUnitComponentSoFabricator
+public abstract class UnitComponentSoFabricator<TComponent, TData> : UnitComponentSoFabricator<TComponent>
     where TComponent : UnitComponent<TData>, new()
     where TData : UnitComponentData
 {
     [SerializeField] private TData _data;
 
-    public override AbstractUnitComponent Fabricate()
+    public override UnitComponent Fabricate()
     {
         return new TComponent().SetData(_data);
     }
 }
 
+public abstract class UnitComponentSoFabricator<TComponent> : AbstractUnitComponentSoFabricator
+    where TComponent : UnitComponent, new()
+{
+    public override UnitComponent Fabricate()
+    {
+        return new TComponent();
+    }
+}
+
 public abstract class AbstractUnitComponentSoFabricator : ScriptableObject
 {
-    public abstract AbstractUnitComponent Fabricate();
+    public abstract UnitComponent Fabricate();
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface IMovingEventCommandHandler
+public interface IMovingEventCommandHandler : ISubscriber
 {
     void Move(Vector2 delta);
 }

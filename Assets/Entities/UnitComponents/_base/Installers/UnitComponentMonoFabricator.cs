@@ -6,7 +6,7 @@ public abstract class UnitComponentMonoFabricator<TComponent, TData> : AbstractU
 {
     [SerializeField] private TData _data;
 
-    public override AbstractUnitComponent Fabricate()
+    public override UnitComponent Fabricate()
     {
         return new TComponent().SetData(_data);
     }
@@ -14,5 +14,5 @@ public abstract class UnitComponentMonoFabricator<TComponent, TData> : AbstractU
 
 public abstract class AbstractUnitComponentMonoFabricator : MonoBehaviour
 {
-    public abstract AbstractUnitComponent Fabricate();
+    public abstract UnitComponent Fabricate();
 }

@@ -11,25 +11,25 @@ public abstract class UnitComponent<TData, TEvent> : UnitComponent<TData>
     }
 }
 
-public abstract class UnitComponent<TData> : AbstractUnitComponent
+public abstract class UnitComponent<TData> : UnitComponent
     where TData : UnitComponentData
 {
     private TData _data;
     public TData Data => _data; 
 
-    public AbstractUnitComponent SetData(TData data)
+    public UnitComponent SetData(TData data)
     {
         _data = data;
         return this;
     }
 }
 
-public abstract class AbstractUnitComponent
+public abstract class UnitComponent
 {
     private Unit _owner;
     public Unit Owner => _owner;
     
-    public AbstractUnitComponent SetOwner(Unit owner)
+    public UnitComponent SetOwner(Unit owner)
     {
         _owner = owner;
         Prepare();

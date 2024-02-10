@@ -16,7 +16,7 @@ public class BattleSceneLoader : MonoBehaviour
 
     private void FakeLoading()
     {
-        var unit = new Unit(new List<AbstractUnitComponent>() {soFabricator.Fabricate()});
+        var unit = new Unit(new List<UnitComponent>() {soFabricator.Fabricate()});
         
         _playerView.Init(unit);
     }
