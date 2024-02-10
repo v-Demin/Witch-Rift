@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class UnitComponentSoFabricator<TComponent, TData> : UnitComponentSoFabricator<TComponent>
+public abstract class UnitComponentSoInstaller<TComponent, TData> : UnitComponentSoInstaller<TComponent>
     where TComponent : UnitComponent<TData>, new()
     where TData : UnitComponentData
 {
@@ -12,7 +12,7 @@ public abstract class UnitComponentSoFabricator<TComponent, TData> : UnitCompone
     }
 }
 
-public abstract class UnitComponentSoFabricator<TComponent> : AbstractUnitComponentSoFabricator
+public abstract class UnitComponentSoInstaller<TComponent> : UnitComponentSoInstaller
     where TComponent : UnitComponent, new()
 {
     public override UnitComponent Fabricate()
@@ -21,7 +21,7 @@ public abstract class UnitComponentSoFabricator<TComponent> : AbstractUnitCompon
     }
 }
 
-public abstract class AbstractUnitComponentSoFabricator : ScriptableObject
+public abstract class UnitComponentSoInstaller : ScriptableObject
 {
     public abstract UnitComponent Fabricate();
 }

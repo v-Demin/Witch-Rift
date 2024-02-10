@@ -1,16 +1,3 @@
-public abstract class UnitComponent<TData, TEvent> : UnitComponent<TData>
-    where TData : UnitComponentData
-    where TEvent : AbstractUnitEventer, new()
-{
-    private TEvent _eventer = new ();
-    public TEvent Eventer => _eventer;
-
-    protected override void Prepare()
-    {
-        _eventer.Init(Owner.EventHolder);
-    }
-}
-
 public abstract class UnitComponent<TData> : UnitComponent
     where TData : UnitComponentData
 {

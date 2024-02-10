@@ -5,8 +5,8 @@ using UnityEngine;
 public class FakeLoader : MonoBehaviour
 {
     [SerializeField] private UnitView _playerView;
-    [SerializeField] private List<AbstractUnitComponentSoFabricator> _soFabricators;
-    [SerializeField] private List<AbstractUnitComponentMonoFabricator> _monoFabricators;
+    [SerializeField] private List<UnitComponentSoInstaller> _soFabricators;
+    [SerializeField] private List<AbstractUnitComponentMonoInstaller> _monoFabricators;
     
     private void Start()
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class UnitComponentMonoFabricator<TComponent, TData> : AbstractUnitComponentMonoFabricator
+public abstract class UnitComponentMonoInstaller<TComponent, TData> : AbstractUnitComponentMonoInstaller
     where TComponent : UnitComponent<TData>, new()
     where TData : UnitComponentData
 {
@@ -12,7 +12,7 @@ public abstract class UnitComponentMonoFabricator<TComponent, TData> : AbstractU
     }
 }
 
-public abstract class AbstractUnitComponentMonoFabricator : MonoBehaviour
+public abstract class AbstractUnitComponentMonoInstaller : MonoBehaviour
 {
     public abstract UnitComponent Fabricate();
 }
