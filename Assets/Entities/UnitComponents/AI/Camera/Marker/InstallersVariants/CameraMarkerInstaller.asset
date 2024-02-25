@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebb5217d6104a134aa034a5fa7ecc2de, type: 3}
-  m_Name: MovingFabricator
+  m_Script: {fileID: 11500000, guid: 050ad2e88aa03ff41976338a32dfa8c7, type: 3}
+  m_Name: CameraMarkerInstaller
   m_EditorClassIdentifier: 
-  _data:
-    MoveSpeed: 5

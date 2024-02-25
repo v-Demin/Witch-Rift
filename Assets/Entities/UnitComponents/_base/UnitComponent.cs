@@ -27,7 +27,7 @@ public abstract class UnitComponent
 
     public void Init()
     {
-        Owner.EventHolder.Subscribe(this);
+        Owner.LocalEventHolder.Subscribe(this);
         InitInner();
     }
 

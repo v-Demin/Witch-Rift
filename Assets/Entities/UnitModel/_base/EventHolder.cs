@@ -35,7 +35,7 @@ public class EventHolder
             }
             catch (Exception e)
             {
-                Debug.LogError(e);
+                Debug.LogError($"In {subscriber.GetType()} ---- {e}");
             }
         }
     }

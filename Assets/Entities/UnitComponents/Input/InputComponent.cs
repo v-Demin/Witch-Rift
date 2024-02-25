@@ -20,14 +20,21 @@ public class InputComponent : UnitComponent, PlayerInput.IBaseActions
         _inputActions.Base.MovingDirectionAction.canceled += OnMovingDirectionAction;
 
         _inputActions.Base.AdditionalMovingAction.performed += OnAdditionalMovingAction;
+        _inputActions.Base.AdditionalMovingAction.canceled += OnAdditionalMovingActionEnd;
     }
 
     public void OnMovingDirectionAction(InputAction.CallbackContext context)
     {
-        Owner.EventHolder.RaiseEvent<IMovingEventCommandHandler>(handler => handler.Move(context.ReadValue<Vector2>()));
+        Owner.LocalEventHolder.RaiseEvent<IMovingEventCommandHandler>(handler => handler.Move(context.ReadValue<Vector2>()));
     }
 
     public void OnAdditionalMovingAction(InputAction.CallbackContext context)
     {
+        Owner.LocalEventHolder.RaiseEvent<IMovingEventCommandHandler>(handler => handler.AdditionalMoveActionStarted());
+    }
+    
+    public void OnAdditionalMovingActionEnd(InputAction.CallbackContext context)
+    {
+        Owner.LocalEventHolder.RaiseEvent<IMovingEventCommandHandler>(handler => handler.AdditionalMoveActionStarted());
     }
 }

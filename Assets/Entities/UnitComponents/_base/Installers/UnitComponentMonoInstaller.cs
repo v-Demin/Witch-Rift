@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 public abstract class UnitComponentMonoInstaller<TComponent, TData> : AbstractUnitComponentMonoInstaller
     where TComponent : UnitComponent<TData>, new()
@@ -6,13 +7,13 @@ public abstract class UnitComponentMonoInstaller<TComponent, TData> : AbstractUn
 {
     [SerializeField] private TData _data;
 
-    public override UnitComponent Fabricate()
+    public override UnitComponent Fabricate(DiContainer container)
     {
-        return new TComponent().SetData(_data);
+        return container.Instantiate<TComponent>().SetData(_data);
     }
 }
 
 public abstract class AbstractUnitComponentMonoInstaller : MonoBehaviour
 {
-    public abstract UnitComponent Fabricate();
+    public abstract UnitComponent Fabricate(DiContainer container);
 }
