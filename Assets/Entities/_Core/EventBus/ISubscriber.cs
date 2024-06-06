@@ -1,6 +1,3 @@
-namespace Graybox.Core.EventSystem
+public interface ISubscriber
 {
-    public interface ISubscriber
-    {
-    }
 }
