@@ -14,7 +14,6 @@ public class Unit : MonoBehaviour, IRegisterHandler
 
     public void HandleRegisterRequest(AbstractUnitComponent component)
     {
-        "реквест пришел".Log(Color.cyan);
         RegisterComponent(component);
     }
 

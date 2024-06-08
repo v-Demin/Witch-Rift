@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class AbstractUnitComponent : MonoBehaviour
+public abstract class AbstractUnitComponent : MonoBehaviour, ISubscriber
 {
     protected EventBus OwnerBus;
     protected EventBus InnerBus;
@@ -8,6 +8,6 @@ public abstract class AbstractUnitComponent : MonoBehaviour
     public void Attach(EventBus ownerBus)
     {
         OwnerBus = ownerBus;
-        "аттач".Log(Color.cyan);
+        OwnerBus.Subscribe(this);
     }
 }

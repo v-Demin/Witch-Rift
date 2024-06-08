@@ -21,7 +21,12 @@ public abstract class AbstractUnitFactory : MonoBehaviour
         componentGameObject.transform.SetParent(owner.transform);
         var component = componentGameObject.AddComponent<T>();
         
-        "вызов пришел".Log(Color.cyan);
         owner.InnerBus.RaiseEvent<IRegisterHandler>(handler => handler.HandleRegisterRequest(component));
+    }
+    
+    protected void AttachComponent<T>(Unit owner, T prefab) where T : AbstractUnitComponent
+    {
+        var instance = Instantiate(prefab);
+        owner.InnerBus.RaiseEvent<IRegisterHandler>(handler => handler.HandleRegisterRequest(instance));
     }
 }
