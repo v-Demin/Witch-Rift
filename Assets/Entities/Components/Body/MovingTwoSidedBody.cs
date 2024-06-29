@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class BaseBody : AbstractBody
+public class MovingTwoSidedBody : AbstractBody
 {
     [SerializeField] private GameObject _leftBodyPart;
     [SerializeField] private GameObject _rightBodyPart;
-    
+
     public override void HandleMoved(Vector3 delta)
     {
         if (delta.x > 0)
